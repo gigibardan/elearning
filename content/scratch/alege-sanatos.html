@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Alege Sănătos - TechMinds</title>
+  <meta name="description" content="Învață să creezi un joc simplu și educativ în Scratch unde jucătorul trebuie să prindă alimente sănătoase și să evite cele nesănătoase.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  
+  <!-- Stiluri -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  
+  <!-- Font Awesome pentru iconițe -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header va fi încărcat aici -->
+  <div id="header-container"></div>
+  
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Alege Sănătos" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 30 minute</span>
+          <span><i class="fas fa-signal"></i> Începător</span>
+          <span><i class="fas fa-graduation-cap"></i> 7-14 ani</span>
+        </div>
+      </header>
+      
+      <section class="tutorial-content">
+        <!-- Secțiunea de introducere -->
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>Într-o lume plină de tentații culinare, e tot mai important să facem alegeri sănătoase! În această aventură digitală, tu vei controla un bol care trebuie să prindă mere delicioase ce cad din cer, evitând în același timp gogoșile dulci dar nesănătoase.</p>
+            <p>Jocul "Alege Sănătos" este perfect pentru începători în programare și combină distracția cu un mesaj important despre alimentația sănătoasă. Vei învăța să creezi personaje interactive, să programezi mișcări, să detectezi coliziuni și să ții scorul!</p>
+          </div>
+          
+          <div class="tutorial-features-row">
+            <div class="tutorial-features">
+              <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Controlul personajelor cu săgețile de pe tastatură</li>
+                <li><i class="fas fa-check"></i> Generarea de obiecte care cad aleatoriu</li>
+                <li><i class="fas fa-check"></i> Detectarea coliziunilor între personaje</li>
+                <li><i class="fas fa-check"></i> Folosirea variabilelor pentru a ține scorul</li>
+                <li><i class="fas fa-check"></i> Crearea condițiilor de victorie și înfrângere</li>
+              </ul>
+            </div>
+            
+            <div class="game-preview">
+              <div class="preview-container">
+                <img src="../../assets/images/scratch-alegesanatos-preview.png" alt="Previzualizare joc Alege Sănătos" class="preview-image">
+                <div class="play-button">
+                  <a href="https://scratch.mit.edu/projects/1144176373/editor/" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Secțiunea de start -->
+        <div class="get-started">
+          <h2>Să începem!</h2>
+          <p>Pentru a crea acest joc mai ușor, am pregătit un proiect starter cu toate personajele deja adăugate. Tot ce trebuie să faci este să adaugi codul pentru a le aduce la viață!</p>
+          <a href="https://scratch.mit.edu/projects/1144176373/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+          <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă butonul "Vezi în interior" pentru a putea edita proiectul, apoi "Remixează" pentru a salva propria versiune!</p>
+        </div>
+        
+        <!-- Pasul 1: Personajele jocului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Personajele jocului</h2>
+          <p>Proiectul starter conține deja toate personajele de care ai nevoie:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect1personaje.png" alt="Personajele jocului" class="code-image">
+          </div>
+          
+          <div class="sprites-list">
+            <div class="sprite-item">
+              <span class="sprite-icon">🥣</span>
+              <div class="sprite-info">
+                <h4>Bowl (Bolul)</h4>
+                <p>Personajul principal pe care îl vei controla cu săgețile stânga-dreapta.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🍎</span>
+              <div class="sprite-info">
+                <h4>Apple (Mărul)</h4>
+                <p>Aliment sănătos care îți aduce 1 punct când îl prinzi.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🍩</span>
+              <div class="sprite-info">
+                <h4>Donut (Gogoașa)</h4>
+                <p>Aliment nesănătos care îți scade 2 puncte când îl prinzi.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">📊</span>
+              <div class="sprite-info">
+                <h4>Win și Lose</h4>
+                <p>Mesaje de victorie și înfrângere care vor apărea la sfârșitul jocului.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">➖</span>
+              <div class="sprite-info">
+                <h4>Linie</h4>
+                <p>O linie invizibilă la baza ecranului pentru a detecta când obiectele ating pământul.</p>
+              </div>
+            </div>
+          </div>
+          
+          <p>Decorul folosit este "Blue Sky", care este deja disponibil în biblioteca Scratch.</p>
+        </section>
+        
+        <!-- Pasul 2: Controlarea bolului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Controlarea bolului</h2>
+          <p>Primul pas este să facem bolul să se miște stânga-dreapta folosind săgețile de pe tastatură. Selectează personajul <strong>Bowl</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect1codbowl.png" alt="Codul pentru controlul bolului" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>La începerea jocului</strong> - setăm scorul la 0 și poziționăm bolul în partea de jos a ecranului.</li>
+              <li><strong>Controlul mișcării</strong> - verificăm continuu dacă săgețile stânga sau dreapta sunt apăsate și mișcăm bolul cu 10 pași în direcția corespunzătoare.</li>
+              <li><strong>Limitarea mișcării</strong> - ne asigurăm că bolul nu iese din marginile ecranului folosind blocul "dacă atinge marginea, ricoșează".</li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți ajusta viteza bolului modificând numărul de pași (10) din blocurile "modifică x cu..." pentru o mișcare mai lentă sau mai rapidă.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 3: Programarea mărului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Programarea mărului</h2>
+          <p>Acum vom face mărul să cadă din partea de sus a ecranului și să aducă puncte când este prins. Selectează personajul <strong>Apple</strong> și adaugă acest cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect1codapple.png" alt="Codul pentru măr" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>La începutul jocului</strong> - ascundem mărul și îl facem să se rotească.</li>
+              <li><strong>Bucla infinită</strong> - creăm un ciclu continuu în care mărul:
+                <ul>
+                  <li>Apare în partea de sus a ecranului la o poziție aleatoare</li>
+                  <li>Cade în jos până atinge bolul sau linia de jos</li>
+                  <li>Adaugă 1 punct când atinge bolul (și face un sunet)</li>
+                  <li>Se repoziționează pentru o nouă cădere</li>
+                </ul>
+              </li>
+              <li><strong>Temporizarea</strong> - așteaptă între 1 și 2 secunde înainte de a genera un nou măr, pentru a face jocul interesant.</li>
+            </ol>
+          </div>
+        </section>
+        
+        <!-- Pasul 4: Programarea gogoșii -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">4</span> Programarea gogoșii</h2>
+          <p>Gogoașa va funcționa similar cu mărul, dar va scădea puncte în loc să adauge. Selectează personajul <strong>Donut</strong> și adaugă cod similar cu cel al mărului, dar cu aceste diferențe:</p>
+          
+          <div class="code-explanation">
+            <ul>
+              <li>Când gogoașa atinge bolul, scade scorul cu 2 puncte în loc să-l crească</li>
+              <li>Setează intervalul de așteptare între 2 și 3 secunde pentru a face jocul mai echilibrat</li>
+            </ul>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h5>Pentru măr:</h5>
+                <div class="scratch-block">
+                  <span class="block-text">modifică [Scor] cu [1]</span>
+                </div>
+                <div class="scratch-block">
+                  <span class="block-text">așteaptă [alege aleator între (1) și (2)] secunde</span>
+                </div>
+              </div>
+              
+              <div class="code-block">
+                <h5>Pentru gogoașă:</h5>
+                <div class="scratch-block negative">
+                  <span class="block-text">modifică [Scor] cu [-2]</span>
+                </div>
+                <div class="scratch-block">
+                  <span class="block-text">așteaptă [alege aleator între (2) și (3)] secunde</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat pentru echilibrare</h4>
+              <p>Poți face jocul mai ușor sau mai dificil ajustând valorile pentru punctaj și intervalele de timp. Mai puține puncte negative sau intervale mai lungi = joc mai ușor.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 5: Condiții de victorie și înfrângere -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">5</span> Condiții de victorie și înfrângere</h2>
+          <p>În final, trebuie să adăugăm condiții pentru a ști când jucătorul câștigă sau pierde. Vom folosi personajele "win" și "lose" pentru a afișa mesajele corespunzătoare.</p>
+          
+          <div class="win-lose-container">
+            <div class="code-column">
+              <h4>Pentru personajul "win":</h4>
+              <img src="../../assets/images/scratchproiect1codwin.png" alt="Codul pentru victorie" class="code-image">
+              <p>Când scorul depășește 49, jucătorul câștigă!</p>
+            </div>
+            
+            <div class="code-column">
+              <h4>Pentru personajul "lose":</h4>
+              <img src="../../assets/images/scratchproiect1codlose.png" alt="Codul pentru înfrângere" class="code-image">
+              <p>Când scorul scade sub -5, jucătorul pierde!</p>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <p>Ambele personaje sunt ascunse la început. Ele verifică constant scorul și apar doar când sunt îndeplinite condițiile:</p>
+            <ul>
+              <li><strong>Win</strong> apare când scorul > 49, afișând un mesaj de felicitare</li>
+              <li><strong>Lose</strong> apare când scorul < -5, afișând un mesaj de încurajare pentru a încerca din nou</li>
+            </ul>
+            <p>Când apare oricare dintre ele, toate celelalte acțiuni din joc sunt oprite folosind blocul "stop [totul]".</p>
+          </div>
+        </section>
+        
+        <!-- Pasul 6: Testează și îmbunătățește -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">6</span> Testează și îmbunătățește</h2>
+          <p>Acum ai toate elementele necesare pentru a face jocul funcțional! Apasă steagul verde pentru a testa jocul și vezi cum funcționează.</p>
+          
+          <div class="challenge-section">
+            <h3><i class="fas fa-star"></i> Provocări pentru îmbunătățirea jocului</h3>
+            <p>După ce ai terminat jocul de bază, încearcă aceste îmbunătățiri:</p>
+            
+            <div class="challenges">
+              <div class="challenge-item">
+                <span class="challenge-icon">🔊</span>
+                <div class="challenge-info">
+                  <h4>Adaugă efecte sonore</h4>
+                  <p>Adaugă sunete diferite pentru prinderea mărului, gogoșii sau pentru victorie/înfrângere.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🎯</span>
+                <div class="challenge-info">
+                  <h4>Adaugă nivele de dificultate</h4>
+                  <p>Fă obiectele să cadă mai repede pe măsură ce scorul crește.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🥦</span>
+                <div class="challenge-info">
+                  <h4>Adaugă mai multe alimente</h4>
+                  <p>Creează noi personaje cu alimente sănătoase (legume, fructe) și nesănătoase (chips, ciocolată).</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🎮</span>
+                <div class="challenge-info">
+                  <h4>Crează un ecran de start</h4>
+                  <p>Adaugă un ecran de titlu și un buton de "Start" înainte de începerea jocului.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Concluzie -->
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc distractiv și educativ care promovează alimentația sănătoasă! Acum poți:</p>
+          <ul class="conclusion-list">
+            <li><i class="fas fa-share-nodes"></i> <strong>Împărtășește jocul</strong> cu prietenii și familia</li>
+            <li><i class="fas fa-code-branch"></i> <strong>Modifică-l</strong> pentru a crea propria ta versiune</li>
+            <li><i class="fas fa-lightbulb"></i> <strong>Folosește</strong> ce ai învățat pentru a crea noi jocuri</li>
+          </ul>
+          
+          <div class="next-project">
+            <h3><i class="fas fa-forward"></i> Ce urmează?</h3>
+            <p>Încearcă să creezi un alt joc sau să adaugi mai multe funcționalități la acesta. Programarea în Scratch este o aventură creativă fără limite!</p>
+            <a href="index.html" class="btn secondary">Descoperă mai multe tutoriale Scratch</a>
+          </div>
+        </section>
+    </article>
+  </main>
+  
+  <!-- Footer va fi încărcat aici -->
+  <div id="footer-container"></div>
+  
+  <!-- Scripts -->
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>

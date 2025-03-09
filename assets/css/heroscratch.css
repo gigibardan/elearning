@@ -1,0 +1,132 @@
+/* Stiluri specifice pentru Scratch Hero */
+.scratch-hero {
+    background: linear-gradient(45deg, #4d97ff, #3373cc);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scratch-hero h1, 
+  .scratch-hero p {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 3;
+  }
+  
+  .scratch-hero .btn.primary {
+    background-color: #ff9f00;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .scratch-hero .btn.primary:hover {
+    background-color: #ffb133;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .scratch-hero .btn.secondary {
+    background-color: white;
+    color: #4d97ff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .scratch-hero .btn.secondary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Animația pentru Scratch Hero - folosim imagini reale pentru blocuri Scratch */
+  .scratch-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      url('/assets/images/scratch-block-yellow.png'),
+      url('/assets/images/scratch-block-purple.png'),
+      url('/assets/images/scratch-block-blue.png'),
+      url('/assets/images/scratch-block-green.png'),
+      url('/assets/images/scratch-block-orange.png');
+    background-size: 
+      100px auto, 
+      80px auto, 
+      120px auto,
+      90px auto,
+      110px auto;
+    background-position: 
+      10% 20%, 
+      80% 65%, 
+      30% 35%,
+      75% 25%,
+      20% 80%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+    animation: scratch-blocks 15s linear infinite;
+  }
+  
+
+  
+  /* Efect de strălucire animat */
+  .hero-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: scratch-shine 6s ease-in-out infinite;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+ 
+  
+  @keyframes scratch-shine {
+    0% {
+      left: -150%;
+    }
+    45%, 100% {
+      left: 150%;
+    }
+  }
+  
+  @keyframes scratch-blocks {
+    0% {
+      background-position: 
+        10% 20%, 
+        80% 65%, 
+        30% 35%,
+        75% 25%,
+        20% 80%;
+    }
+    50% {
+      background-position: 
+        15% 25%, 
+        75% 60%, 
+        35% 40%,
+        70% 30%,
+        25% 75%;
+    }
+    100% {
+      background-position: 
+        10% 20%, 
+        80% 65%, 
+        30% 35%,
+        75% 25%,
+        20% 80%;
+    }
+  }

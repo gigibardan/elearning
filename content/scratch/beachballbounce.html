@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Beach Ball Bounce - TechMinds</title>
+  <meta name="description" content="Învață să creezi un joc distractiv în Scratch unde controlezi un colac de înot pentru a menține o minge de plajă în aer, colectând scoici și evitând pești pufferfish.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  
+  <!-- Stiluri -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  
+  <!-- Font Awesome pentru iconițe -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header va fi încărcat aici -->
+  <div id="header-container"></div>
+  
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Beach Ball Bounce" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 90 minute</span>
+          <span><i class="fas fa-signal"></i> Începător-Intermediar</span>
+          <span><i class="fas fa-graduation-cap"></i> 9-15 ani</span>
+        </div>
+      </header>
+      
+      <section class="tutorial-content">
+        <!-- Secțiunea de introducere -->
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>Este o zi perfectă de vară pe o plajă însorită! În acest joc plin de distracție și provocări, tu controlezi un colac de înot colorat care trebuie să mențină o minge de plajă în aer. Scopul tău este să nu lași mingea să atingă nisipul și să obții cât mai multe puncte!</p>
+            <p>Pe lângă provocarea principală, vei avea șansa să colectezi scoici marine care îți aduc puncte bonus. Dar ai grijă la peștii pufferfish care apar din când în când - atingerea lor cu mingea îți va scădea din punctaj. Acest joc distractiv combină reflexele rapide cu abilitățile de sincronizare și este perfect pentru a învăța concepte importante de programare în Scratch.</p>
+          </div>
+          
+          <div class="tutorial-features-row">
+            <div class="tutorial-features">
+              <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Controlul obiectelor folosind mouse-ul</li>
+                <li><i class="fas fa-check"></i> Simularea fizicii și mișcării realiste a mingii</li>
+                <li><i class="fas fa-check"></i> Generarea de obiecte aleatorii cu comportamente diferite</li>
+                <li><i class="fas fa-check"></i> Detectarea coliziunilor între multiple personaje</li>
+                <li><i class="fas fa-check"></i> Implementarea unui sistem de scor cu recompense și penalizări</li>
+              </ul>
+            </div>
+            
+            <div class="game-preview">
+              <div class="preview-container">
+                <img src="../../assets/images/scratchproiect4preview.png" alt="Previzualizare joc Beach Ball Bounce" class="preview-image">
+                <div class="play-button">
+                  <a href="https://scratch.mit.edu/projects/1144457304" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Secțiunea de start -->
+        <div class="get-started">
+          <h2>Să începem!</h2>
+          <p>Pentru a crea acest joc mai ușor, am pregătit un proiect starter cu colacul de înot și mesajele de victorie/înfrângere deja adăugate. Tot ce trebuie să faci este să adaugi restul personajelor și să programezi comportamentul lor!</p>
+          <a href="https://scratch.mit.edu/projects/1144470436/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+          <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă butonul "Vezi în interior" pentru a putea edita proiectul, apoi "Remixează" pentru a salva propria versiune!</p>
+        </div>
+        
+        <!-- Pasul 1: Personajele jocului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Personajele jocului</h2>
+          <p>Proiectul starter conține deja colacul de înot și câteva elemente. Va trebui să adăugăm mingea de plajă, scoicile și peștele puffer din biblioteca Scratch:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect4personaje.png" alt="Personajele jocului" class="code-image">
+          </div>
+          
+          <div class="sprites-list">
+            <div class="sprite-item">
+              <span class="sprite-icon">🏊</span>
+              <div class="sprite-info">
+                <h4>Swim Ring (Colacul)</h4>
+                <p>Personajul principal pe care îl vei controla cu mouse-ul pentru a respinge mingea și a colecta obiecte.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🏐</span>
+              <div class="sprite-info">
+                <h4>Beach Ball (Mingea de plajă)</h4>
+                <p>Obiectul principal care trebuie menținut în aer, căzând în mod natural și ricoșând când atinge colacul.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🐚</span>
+              <div class="sprite-info">
+                <h4>Shell (Scoica)</h4>
+                <p>Obiect bonus care apare aleatoriu și aduce puncte suplimentare când este atins de minge.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🐡</span>
+              <div class="sprite-info">
+                <h4>Pufferfish (Peștele balon)</h4>
+                <p>Obstacol care apare aleatoriu și scade punctajul când este atins de minge.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">➖</span>
+              <div class="sprite-info">
+                <h4>Linie</h4>
+                <p>O linie invizibilă plasată la baza ecranului pentru a detecta când mingea atinge solul (înfrângere).</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Adăugarea personajelor lipsă:</h4>
+            <ol>
+              <li>Pentru a adăuga <strong>Mingea de plajă</strong>, apasă pe iconița "Alege un personaj" din colțul din dreapta jos</li>
+              <li>Caută "beach ball" sau "volleyball" în biblioteca Scratch și alege o minge colorată</li>
+              <li>Pentru <strong>Pufferfish</strong>, caută "pufferfish" și alege un model potrivit</li>
+              <li>Pentru decor, caută "beach" și selectează un decor de plajă precum "Malibu Beach"</li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Personajul "Shell" (scoica) are 3 costume diferite care vor fi folosite aleatoriu pentru a adăuga diversitate în joc.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 2: Controlarea colacului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Controlarea colacului cu mouse-ul</h2>
+          <p>Primul pas este să facem colacul să urmărească mouse-ul pe axa orizontală. Acesta va fi instrumentul principal pentru a menține mingea în aer. Selectează personajul <strong>Swim Ring</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect4swimring.png" alt="Codul pentru colac" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>La începerea jocului</strong> - colacul se poziționează în partea de jos a ecranului, se face vizibil, și se setează scorul inițial la 0.</li>
+              <li><strong>Controlul mișcării</strong> - într-o buclă infinită, colacul își ajustează poziția orizontală (x) pentru a urma poziția mouse-ului (mouseX).
+              </li>
+              <li><strong>Limitarea mișcării</strong> - Ne asigurăm că colacul nu poate ieși din marginile ecranului.</li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Valoarea y a colacului rămâne fixă (-140) pentru a-l menține în partea de jos a ecranului. Poți ajusta această valoare dacă vrei să schimbi înălțimea la care se deplasează colacul.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 3: Programarea mingii de plajă -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Programarea mingii de plajă</h2>
+          <p>Acum vom programa comportamentul mingii de plajă, care este elementul central al jocului. Mingea va cădea în mod natural, va ricoșa când atinge colacul și va adăuga puncte la scor. Selectează personajul <strong>Beach Ball</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect4beachball.png" alt="Codul pentru mingea de plajă" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>La început</strong> - mingea se poziționează în partea de sus a ecranului și primește o direcție inițială aleatoare.</li>
+              <li><strong>Simularea gravitației</strong> - într-o buclă infinită:
+                <ul>
+                  <li>Aplicăm o forță gravitațională constantă (modifică y cu un număr negativ)</li>
+                  <li>Verificăm dacă mingea atinge colacul - în acest caz, ricoșează și adaugă un punct</li>
+                  <li>Verificăm dacă mingea atinge linia de jos - în acest caz, jocul se termină</li>
+                </ul>
+              </li>
+              <li><strong>Ricoșare</strong> - Când mingea atinge colacul, ii dăm o velocitate pozitivă (în sus) și o direcție ușor aleatoare pentru a face jocul mai interesant.</li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți face jocul mai dificil sau mai ușor ajustând valorile de gravitație și ricoșare. O valoare mai mare pentru gravitație va face mingea să cadă mai repede.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 4: Adăugarea scoicilor bonus -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">4</span> Adăugarea scoicilor bonus</h2>
+          <p>Pentru a face jocul mai interesant, vom adăuga scoici marine care apar aleatoriu pe ecran. Când mingea atinge o scoică, jucătorul primește puncte bonus. Selectează personajul <strong>Shell</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect4shell.png" alt="Codul pentru scoici" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>La început</strong> - ascundem scoica originală și pregătim generarea de clone.</li>
+              <li><strong>Generarea scoicilor</strong> - într-o buclă infinită:
+                <ul>
+                  <li>Așteptăm un interval aleatoriu de timp (între 5 și 10 secunde)</li>
+                  <li>Creăm o nouă scoică (clonă)</li>
+                </ul>
+              </li>
+              <li><strong>Comportamentul scoicilor</strong> - fiecare clonă:
+                <ul>
+                  <li>Alege aleatoriu unul din cele 3 costume disponibile</li>
+                  <li>Apare la o poziție aleatoare pe ecran</li>
+                  <li>Se face vizibilă pentru 5 secunde</li>
+                  <li>Verifică constant dacă este atinsă de minge, caz în care adaugă 3 puncte la scor și dispare</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți adăuga efecte sonore sau vizuale atunci când mingea colectează o scoică pentru a face experiența mai satisfăcătoare.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 5: Adăugarea peștelui pufferfish -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">5</span> Adăugarea peștelui pufferfish</h2>
+          <p>Pentru a crește dificultatea, vom adăuga un pește pufferfish care apare aleatoriu. Dacă mingea atinge acest pește, jucătorul pierde puncte. Selectează personajul <strong>Pufferfish</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect4pufferfish.png" alt="Codul pentru pufferfish" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>La început</strong> - ascundem peștele original și pregătim generarea de clone.</li>
+              <li><strong>Generarea peștilor</strong> - într-o buclă infinită:
+                <ul>
+                  <li>Așteptăm un interval aleatoriu de timp (între 10 și 15 secunde)</li>
+                  <li>Creăm un nou pește (clonă)</li>
+                </ul>
+              </li>
+              <li><strong>Comportamentul peștilor</strong> - fiecare clonă:
+                <ul>
+                  <li>Apare la o poziție aleatoare pe ecran</li>
+                  <li>Se face vizibilă pentru 4 secunde</li>
+                  <li>Verifică constant dacă este atinsă de minge, caz în care scade 5 puncte din scor și dispare</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h5>Pentru scoici (bonus):</h5>
+                <div class="scratch-block">
+                  <span class="block-text">dacă atinge [Beach Ball] atunci</span>
+                </div>
+                <div class="scratch-block">
+                  <span class="block-text">modifică [Scor] cu [3]</span>
+                </div>
+              </div>
+              
+              <div class="code-block">
+                <h5>Pentru pufferfish (penalizare):</h5>
+                <div class="scratch-block negative">
+                  <span class="block-text">dacă atinge [Beach Ball] atunci</span>
+                </div>
+                <div class="scratch-block negative">
+                  <span class="block-text">modifică [Scor] cu [-5]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 6: Condiții de victorie și înfrângere -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">6</span> Condiții de victorie și înfrângere</h2>
+          <p>În final, vom adăuga condiții pentru a determina când jocul se termină cu victorie sau înfrângere. Vom folosi personajele "Win" și "Lose" care sunt deja în proiect.</p>
+          
+          <div class="win-lose-container">
+            <div class="code-column">
+              <h4>Pentru personajul "Win":</h4>
+              <img src="../../assets/images/scratchproiect4win.png" alt="Codul pentru victorie" class="code-image">
+              <p>Când scorul atinge 50, jucătorul câștigă!</p>
+            </div>
+            
+            <div class="code-column">
+              <h4>Pentru personajul "Lose":</h4>
+              <img src="../../assets/images/scratchproiect4lose.png" alt="Codul pentru înfrângere" class="code-image">
+              <p>Când mingea atinge pământul (linia de jos), jocul se termină!</p>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <p>Ambele personaje sunt ascunse la început. Ele apar doar când sunt îndeplinite condițiile specifice:</p>
+            <ul>
+              <li><strong>Win</strong> - verifică constant dacă scorul a atins 50 de puncte și afișează un mesaj de felicitare când această condiție este îndeplinită.</li>
+              <li><strong>Lose</strong> - ascultă pentru mesajul "game over" (care este trimis când mingea atinge linia de jos) și afișează un mesaj de înfrângere.</li>
+            </ul>
+            <p>Când apare oricare dintre aceste mesaje, jocul se oprește folosind blocul "stop [totul]".</p>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți personaliza mesajele de victorie și înfrângere sau poți adăuga efecte sonore pentru a face finalul jocului mai interesant.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 7: Testează și îmbunătățește -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">7</span> Testează și îmbunătățește</h2>
+          <p>Acum că toate elementele jocului sunt implementate, este timpul să îl testezi! Apasă steagul verde și încearcă să menții mingea în aer cât mai mult timp, colectând scoici și evitând peștii pufferfish.</p>
+          
+          <div class="challenge-section">
+            <h3><i class="fas fa-star"></i> Provocări pentru îmbunătățirea jocului</h3>
+            <p>După ce ai terminat jocul de bază, încearcă aceste îmbunătățiri:</p>
+            
+            <div class="challenges">
+              <div class="challenge-item">
+                <span class="challenge-icon">🔊</span>
+                <div class="challenge-info">
+                  <h4>Adaugă efecte sonore</h4>
+                  <p>Adaugă sunete pentru ricoșarea mingii, colectarea scoicilor, lovirea peștelui pufferfish și pentru finalul jocului.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">⏱️</span>
+                <div class="challenge-info">
+                  <h4>Adaugă un cronometru</h4>
+                  <p>Implementează un timer care să măsoare cât timp reușești să ții mingea în aer.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🌊</span>
+                <div class="challenge-info">
+                  <h4>Adaugă mai multe tipuri de obiecte</h4>
+                  <p>Creează noi obiecte bonus sau obstacole, cum ar fi stele de mare, meduze sau valuri.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🎮</span>
+                <div class="challenge-info">
+                  <h4>Crește dificultatea progresiv</h4>
+                  <p>Fă jocul să devină mai dificil pe măsură ce scorul crește, de exemplu mărind viteza de cădere a mingii.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Concluzie -->
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc captivant de vară în care trebuie să menții o minge de plajă în aer! Acest proiect ți-a permis să înveți despre controlul cu mouse-ul, simularea fizicii, generarea de obiecte aleatorii și implementarea unui sistem de punctaj. Acum poți:</p>
+          <ul class="conclusion-list">
+            <li><i class="fas fa-share-nodes"></i> <strong>Împărtășește jocul</strong> cu prietenii și familia</li>
+            <li><i class="fas fa-code-branch"></i> <strong>Personalizează-l</strong> adăugând propriile tale idei și îmbunătățiri</li>
+            <li><i class="fas fa-lightbulb"></i> <strong>Folosește</strong> aceste concepte pentru a crea alte jocuri similare</li>
+          </ul>
+          
+          <div class="next-project">
+            <h3><i class="fas fa-forward"></i> Ce urmează?</h3>
+            <p>Acum că ai învățat cum să creezi un joc bazat pe fizică și controlat cu mouse-ul, poți încerca să creezi jocuri mai complexe cu mai multe niveluri sau cu mecanici de joc diferite.</p>
+            <a href="index.html" class="btn secondary">Descoperă mai multe tutoriale Scratch</a>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  
+  <!-- Footer va fi încărcat aici -->
+  <div id="footer-container"></div>
+  
+  <!-- Scripts -->
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>
