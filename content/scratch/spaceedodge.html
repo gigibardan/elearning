@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Space Dodge - TechMinds</title>
+  <meta name="description" content="Învață să creezi un joc captivant în Scratch unde controlezi o navă spațială care trebuie să evite meteoriți și să supraviețuiască în cosmos.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  
+  <!-- Stiluri -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  
+  <!-- Font Awesome pentru iconițe -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header va fi încărcat aici -->
+  <div id="header-container"></div>
+  
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Space Dodge" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 90 minute</span>
+          <span><i class="fas fa-signal"></i> Începător</span>
+          <span><i class="fas fa-graduation-cap"></i> 8-14 ani</span>
+        </div>
+      </header>
+      
+      <section class="tutorial-content">
+        <!-- Secțiunea de introducere -->
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>Într-o galaxie îndepărtată, o navă spațială curajoasă navighează printr-un câmp de meteoriți periculoși. În rolul pilotului, misiunea ta este să manevrezi nava cu îndemânare pentru a evita impactul cu meteoriții care se apropie din toate direcțiile.</p>
+            <p>Jocul "Space Dodge" combină reflexele rapide cu o strategie simplă, într-un mediu cosmic captivant. Pe măsură ce evitezi meteoriții, scorul tău crește, dar și viteza jocului! Cât timp poți supraviețui în adâncimile spațiului?</p>
+          </div>
+          
+          <div class="tutorial-features-row">
+            <div class="tutorial-features">
+              <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Controlul personajelor cu tastele de navigare</li>
+                <li><i class="fas fa-check"></i> Animarea personajelor prin schimbarea costumelor</li>
+                <li><i class="fas fa-check"></i> Generarea de obstacole care apar aleatoriu</li>
+                <li><i class="fas fa-check"></i> Detectarea coliziunilor între personaje</li>
+                <li><i class="fas fa-check"></i> Crearea unui efect de parallax pentru elemente de fundal</li>
+              </ul>
+            </div>
+            
+            <div class="game-preview">
+              <div class="preview-container">
+                <img src="../../assets/images/scratchproiect5preview.png" alt="Previzualizare joc Space Dodge" class="preview-image">
+                <div class="play-button">
+                  <a href="https://scratch.mit.edu/projects/1144705984" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Secțiunea de start -->
+        <div class="get-started">
+          <h2>Să începem!</h2>
+          <p>Pentru a crea acest joc mai ușor, am pregătit un proiect starter cu personajele și decorul deja adăugate. Tot ce trebuie să faci este să adaugi codul pentru a le aduce la viață!</p>
+          <a href="https://scratch.mit.edu/projects/1144760132/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+          <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă butonul "Vezi în interior" pentru a putea edita proiectul, apoi "Remixează" pentru a salva propria versiune!</p>
+        </div>
+        
+        <!-- Pasul 1: Personajele jocului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Personajele jocului</h2>
+          <p>Proiectul starter conține deja toate personajele de care ai nevoie pentru a crea jocul:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect5personaje.png" alt="Personajele jocului" class="code-image">
+          </div>
+          
+          <div class="sprites-list">
+            <div class="sprite-item">
+              <span class="sprite-icon">🚀</span>
+              <div class="sprite-info">
+                <h4>Ship (Nava)</h4>
+                <p>Personajul principal controlat de jucător, care trebuie să evite meteoriții.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">☄️</span>
+              <div class="sprite-info">
+                <h4>Meteorit</h4>
+                <p>Obstacolele principale care urmăresc nava și trebuie evitate.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">☄️</span>
+              <div class="sprite-info">
+                <h4>Meteorit2</h4>
+                <p>Un duplicat al meteoritului, cu același cod dar comportament ușor diferit datorită elementelor aleatorii.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🪐</span>
+              <div class="sprite-info">
+                <h4>Space elements</h4>
+                <p>Elemente decorative (planete, stele) care se deplasează în fundal și ricoșează de marginile ecranului.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">➖</span>
+              <div class="sprite-info">
+                <h4>Linie</h4>
+                <p>O linie invizibilă la baza ecranului folosită pentru a detecta când meteoriții ajung la partea inferioară.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Despre personaje:</h4>
+            <ul>
+              <li>Nava spațială are 3 costume diferite pentru a crea o animație de propulsie când se deplasează.</li>
+              <li>Meteoriții au 2 costume fiecare pentru a adăuga varietate vizuală.</li>
+              <li>Elementele spațiale au 4 costume diferite (planete și o navă extraterestră) care apar aleatoriu în fundal.</li>
+            </ul>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți examina costumele fiecărui personaj accesând tab-ul "Costume" după ce selectezi personajul respectiv în lista de sprite-uri.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 2: Controlarea navei spațiale -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Controlarea navei spațiale</h2>
+          <p>Primul pas este să facem nava să se miște stânga-dreapta folosind tastele săgeți. Vom adăuga și o animație pentru a face nava să pară că își folosește propulsoarele. Selectează personajul <strong>Ship</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect5ship.png" alt="Codul pentru nava spațială" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului, nava:
+                <ul>
+                  <li>Se face vizibilă</li>
+                  <li>Se poziționează în partea de jos a ecranului</li>
+                  <li>Se orientează în direcția corectă (în sus)</li>
+                  <li>Resetează scorul la 0</li>
+                </ul>
+              </li>
+              <li><strong>Controlul mișcării</strong> - Într-o buclă infinită, verificăm:
+                <ul>
+                  <li>Dacă săgeata dreapta este apăsată - deplasăm nava la dreapta (+10)</li>
+                  <li>Dacă săgeata stânga este apăsată - deplasăm nava la stânga (-10)</li>
+                </ul>
+              </li>
+              <li><strong>Animația propulsoarelor</strong> - Într-o buclă separată, schimbăm costumul navei la fiecare 0.3 secunde pentru a crea efectul de flacără la propulsoare.</li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți ajusta viteza navei modificând valorile "10" și "-10" din blocurile "modifică x cu". O valoare mai mare va face nava să se miște mai rapid, iar o valoare mai mică o va face să se miște mai lent.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 3: Crearea meteoriților -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Crearea meteoriților</h2>
+          <p>Acum vom adăuga meteoriții care vor cădea din partea de sus a ecranului. Jucătorul va trebui să îi evite pentru a supraviețui. Selectează personajul <strong>Meteorit</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect5meteorit.png" alt="Codul pentru meteorit" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>La începutul jocului</strong>:
+                <ul>
+                  <li>Meteoritul se face vizibil</li>
+                  <li>Se setează scorul la 0</li>
+                </ul>
+              </li>
+              <li><strong>Bucla infinită</strong>:
+                <ul>
+                  <li>Schimbă costumul la aleatoriu între 1 și 2 pentru varietate vizuală</li>
+                  <li>Adaugă 1 punct la scor pentru a măsura progresul jucătorului</li>
+                  <li>Se mută meteoriții la o poziție aleatorie în partea de sus a ecranului (y=180)</li>
+                  <li>Se setează stilul de rotație stânga-dreapta pentru a menține orientarea corectă</li>
+                  <li>Se orientează spre nava jucătorului pentru a crea un efect de urmărire</li>
+                </ul>
+              </li>
+              <li><strong>Mișcare și verificare coliziuni</strong>:
+                <ul>
+                  <li>Meteoriții se mișcă 10 pași în direcția stabilită</li>
+                  <li>Dacă meteoritul atinge nava, se redă un sunet "Oops" și jocul se termină</li>
+                  <li>Dacă atinge linia de jos, revine la partea de sus pentru a începe din nou</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți duplica personajul Meteorit pentru a avea mai mulți meteoriți pe ecran. Acest lucru va crește dificultatea jocului. În proiectul final, sunt folosiți doi meteoriți cu același cod, dar care vor avea mișcări diferite datorită elementelor aleatorii.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 4: Adăugarea elementelor decorative din spațiu -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">4</span> Adăugarea elementelor decorative din spațiu</h2>
+          <p>Pentru a face jocul mai interesant din punct de vedere vizual, vom adăuga elemente decorative (planete, nave extraterestre) care se vor deplasa în fundal. Selectează personajul <strong>Space elements</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect5elements.png" alt="Codul pentru elementele spațiale" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong>:
+                <ul>
+                  <li>La începutul jocului, elementul se ascunde</li>
+                  <li>Se repetă un ciclu de 4 ori pentru a crea 4 clone diferite</li>
+                </ul>
+              </li>
+              <li><strong>Generarea clonelor</strong>:
+                <ul>
+                  <li>Pentru fiecare repetiție, se creează o clonă</li>
+                  <li>După fiecare clonă, se trece la costumul următor, astfel încât fiecare clonă să aibă un aspect diferit</li>
+                  <li>Clonele se mută la o poziție aleatorie</li>
+                </ul>
+              </li>
+              <li><strong>Comportamentul clonelor</strong>:
+                <ul>
+                  <li>Când o clonă începe, se face vizibilă</li>
+                  <li>Se orientează într-o direcție aleatorie (1-360 grade)</li>
+                  <li>Într-o buclă infinită, elementul se mișcă cu 1 pas în direcția aleasă</li>
+                  <li>Dacă atinge marginea ecranului, ricoșează, creând o mișcare continuă și naturală</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Elementele de fundal folosesc cele 4 costume disponibile: 3 planete și o navă extraterestră. Fiecare element se mișcă independent, creând un efect de spațiu cosmic viu și interactiv.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 5: Implementarea sistemului de scor -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">5</span> Implementarea sistemului de scor</h2>
+          <p>În acest pas, vom adăuga un sistem de scor care va crește pe măsură ce jocul continuă. Acest lucru va motiva jucătorul să reziste cât mai mult posibil. Vei adăuga codul pentru scor la personajul <strong>Ship</strong>.</p>
+          
+          <div class="code-explanation">
+            <h4>Adaugă aceste blocuri la codul navei:</h4>
+            <ol>
+              <li>Creează o variabilă numită "Scor" din secțiunea "Variabile"</li>
+              <li>Adaugă un nou bloc "când se dă click pe steagul verde" cu următorul cod:
+                <div class="code-block">
+                  <div class="scratch-block">
+                    <span class="block-text">când se dă click pe [steagul verde]</span>
+                  </div>
+                  <div class="scratch-block">
+                    <span class="block-text">setează [Scor] la [0]</span>
+                  </div>
+                  <div class="scratch-block">
+                    <span class="block-text">la infinit</span>
+                  </div>
+                  <div class="scratch-block indented">
+                    <span class="block-text">așteaptă [1] secunde</span>
+                  </div>
+                  <div class="scratch-block indented">
+                    <span class="block-text">modifică [Scor] cu [1]</span>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            
+            <p>Acest cod va adăuga câte un punct la scor în fiecare secundă cât timp jocul continuă. Cu cât jucătorul rezistă mai mult, cu atât scorul va fi mai mare!</p>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți face jocul mai interesant adăugând logică prin care viteza meteoriților crește pe măsură ce scorul crește, făcând jocul progresiv mai dificil.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 6: Implementarea condițiilor de sfârșit de joc -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">6</span> Implementarea condițiilor de sfârșit de joc</h2>
+          <p>Ultimul pas este să adăugăm condiții pentru terminarea jocului atunci când nava lovește un meteorit. Vom lucra cu codul existent din personajul <strong>Meteorit</strong>.</p>
+          
+          <div class="code-explanation">
+            <h4>Codul pentru sfârșitul jocului:</h4>
+            <p>În codul meteoritului, blocul "dacă atinge [Ship]" deja include logica pentru sfârșitul jocului. Când un meteorit atinge nava, se întâmplă următoarele:</p>
+            
+            <div class="code-block">
+              <div class="scratch-block negative">
+                <span class="block-text">dacă atinge [Ship] atunci</span>
+              </div>
+              <div class="scratch-block negative indented">
+                <span class="block-text">spune [Game Over!] pentru [2] secunde</span>
+              </div>
+              <div class="scratch-block negative indented">
+                <span class="block-text">stop [toate]</span>
+              </div>
+            </div>
+            
+            <p>Acest cod afișează mesajul "Game Over!" și oprește întregul program când nava este lovită de un meteorit.</p>
+            
+            <h4>Îmbunătățiri opționale:</h4>
+            <ol>
+              <li>Adaugă efecte sonore pentru coliziune</li>
+              <li>Adaugă un efect de explozie pentru navă</li>
+              <li>Creează un personaj separat pentru ecranul de Game Over cu un scor final</li>
+            </ol>
+          </div>
+        </section>
+        
+        <!-- Pasul 7: Testează și îmbunătățește -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">7</span> Testează și îmbunătățește</h2>
+          <p>Acum că toate elementele jocului sunt implementate, este timpul să îl testezi! Apasă steagul verde și încearcă să manevrezi nava pentru a evita meteoriții cât mai mult timp posibil.</p>
+          
+          <div class="challenge-section">
+            <h3><i class="fas fa-star"></i> Provocări pentru îmbunătățirea jocului</h3>
+            <p>După ce ai terminat jocul de bază, încearcă aceste îmbunătățiri:</p>
+            
+            <div class="challenges">
+              <div class="challenge-item">
+                <span class="challenge-icon">🎮</span>
+                <div class="challenge-info">
+                  <h4>Adaugă niveluri de dificultate</h4>
+                  <p>Făcă meteoriții să cadă mai repede și mai des pe măsură ce scorul crește.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🔊</span>
+                <div class="challenge-info">
+                  <h4>Adaugă efecte sonore</h4>
+                  <p>Adaugă sunete pentru propulsoare, coliziuni și muzică de fundal potrivită pentru o aventură spațială.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">⭐</span>
+                <div class="challenge-info">
+                  <h4>Adaugă power-ups</h4>
+                  <p>Creează obiecte speciale care pot fi colectate pentru a obține scuturi temporare sau puncte bonus.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">💥</span>
+                <div class="challenge-info">
+                  <h4>Adaugă animații de explozie</h4>
+                  <p>Creează efecte vizuale spectaculoase pentru coliziuni și sfârșitul jocului.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Concluzie -->
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc spațial captivant în care trebuie să eviți meteoriți periculoși! Acest proiect ți-a permis să înveți despre controlul personajelor, generarea de obstacole, detecția coliziunilor și crearea efectelor vizuale în Scratch. Acum poți:</p>
+          <ul class="conclusion-list">
+            <li><i class="fas fa-share-nodes"></i> <strong>Împărtășește jocul</strong> cu prietenii și familia</li>
+            <li><i class="fas fa-code-branch"></i> <strong>Personalizează-l</strong> adăugând propriile tale idei și îmbunătățiri</li>
+            <li><i class="fas fa-lightbulb"></i> <strong>Folosește</strong> aceste concepte pentru a crea alte jocuri similare</li>
+          </ul>
+          
+          <div class="next-project">
+            <h3><i class="fas fa-forward"></i> Ce urmează?</h3>
+            <p>Acum că ai învățat cum să creezi un joc de evitare a obstacolelor, poți încerca să dezvolți un joc mai complex cu mai multe tipuri de inamici, nivele și power-ups!</p>
+            <a href="index.html" class="btn secondary">Descoperă mai multe tutoriale Scratch</a>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  
+  <!-- Footer va fi încărcat aici -->
+  <div id="footer-container"></div>
+  
+  <!-- Scripts -->
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>
