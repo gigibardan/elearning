@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Wizard's Quest - TechMinds</title>
+  <meta name="description" content="Învață să creezi un joc captivant în Scratch cu un vrăjitor care trebuie să traverseze un labirint pentru a găsi o baghetă magică, evitând liliecii periculoși.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  
+  <!-- Stiluri -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  
+  <!-- Font Awesome pentru iconițe -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header va fi încărcat aici -->
+  <div id="header-container"></div>
+  
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Wizard's Quest" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 90 minute</span>
+          <span><i class="fas fa-signal"></i> Intermediar</span>
+          <span><i class="fas fa-graduation-cap"></i> 10-15 ani</span>
+        </div>
+      </header>
+      
+      <section class="tutorial-content">
+        <!-- Secțiunea de introducere -->
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>Într-o noapte întunecată, un vrăjitor broscoi și-a pierdut bagheta magică într-un labirint misterios. Fără ea, nu-și poate folosi puterile! Pentru a complica lucrurile, un grup de lilieci periculoși patrulează coridoarele labirintului.</p>
+            <p>În acest joc captivant, vei controla vrăjitorul broscoi prin labirint, încercând să ajungi la bagheta magică înainte ca liliecii să te prindă. Trebuie să te miști cu atenție - atingerea pereților te va trimite înapoi la început, iar întâlnirea cu un liliac va însemna sfârșitul aventurii!</p>
+          </div>
+          
+          <div class="tutorial-features-row">
+            <div class="tutorial-features">
+              <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Controlul personajelor cu tastele săgeți</li>
+                <li><i class="fas fa-check"></i> Detectarea coliziunilor cu pereții folosind culori</li>
+                <li><i class="fas fa-check"></i> Programarea mișcării autonome a inamicilor</li>
+                <li><i class="fas fa-check"></i> Implementarea algoritmului simplu de evitare a obstacolelor</li>
+                <li><i class="fas fa-check"></i> Crearea condițiilor de victorie și înfrângere</li>
+              </ul>
+            </div>
+            
+            <div class="game-preview">
+              <div class="preview-container">
+                <img src="../../assets/images/scratchproiect6preview.png" alt="Previzualizare joc Wizard's Quest" class="preview-image">
+                <div class="play-button">
+                  <a href="https://scratch.mit.edu/projects/1144799172" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Secțiunea de start -->
+        <div class="get-started">
+          <h2>Să începem!</h2>
+          <p>Pentru a crea acest joc mai ușor, am pregătit un proiect starter cu personajele și labirintul deja adăugate. Tot ce trebuie să faci este să adaugi codul pentru a le aduce la viață!</p>
+          <a href="https://scratch.mit.edu/projects/1144842415/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+          <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă butonul "Vezi în interior" pentru a putea edita proiectul, apoi "Remixează" pentru a salva propria versiune!</p>
+        </div>
+        
+        <!-- Pasul 1: Personajele jocului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Personajele jocului</h2>
+          <p>Proiectul starter conține deja toate personajele de care ai nevoie pentru a crea jocul:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect6personaje.png" alt="Personajele jocului" class="code-image">
+          </div>
+          
+          <div class="sprites-list">
+            <div class="sprite-item">
+              <span class="sprite-icon">🧙</span>
+              <div class="sprite-info">
+                <h4>Wizard-Toad (Vrăjitorul broscoi)</h4>
+                <p>Personajul principal controlat de jucător, care trebuie să traverseze labirintul pentru a ajunge la baghetă.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🦇</span>
+              <div class="sprite-info">
+                <h4>Bat (Liliacul)</h4>
+                <p>Inamicii care patrulează labirintul. Sunt trei exemplare cu același cod, dar care pornesc din poziții diferite.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🪄</span>
+              <div class="sprite-info">
+                <h4>Wand (Bagheta)</h4>
+                <p>Obiectivul jocului, plasat în centrul labirintului. Când vrăjitorul atinge bagheta, jocul este câștigat.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Despre personaje:</h4>
+            <ul>
+              <li>Vrăjitorul broscoi este redimensionat la 15% din mărimea sa originală pentru a putea naviga prin labirint.</li>
+              <li>Liliacul este redimensionat la 13% din mărimea sa originală pentru a putea naviga prin labirint.</li>
+              <li>Liliecii au animație încorporată (bătaie din aripi) și se mișcă autonom prin labirint.</li>
+              <li>Bagheta nu are cod și funcționează doar ca obiect static cu care vrăjitorul va interacționa.</li>
+            </ul>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Este important ca personajele să aibă dimensiunea potrivită pentru a naviga prin labirint. Un personaj prea mare ar putea bloca jucătorul pe holurile mai înguste.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 2: Programarea vrăjitorului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Programarea vrăjitorului</h2>
+          <p>Primul pas este să facem vrăjitorul să se miște cu ajutorul tastelor săgeți și să implementăm coliziunea cu pereții labirintului. Selectează personajul <strong>Wizard-Toad</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect6wizard-toad.png" alt="Codul pentru vrăjitorul broscoi" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului, vrăjitorul:
+                <ul>
+                  <li>Se face vizibil</li>
+                  <li>Se poziționează la coordonatele de start (X 205, Y 157)</li>
+                  <li>Se orientează spre dreapta (90 de grade)</li>
+                </ul>
+              </li>
+              <li><strong>Controlul mișcării</strong> - Într-o buclă infinită:
+                <ul>
+                  <li>Verifică dacă vrăjitorul atinge culoarea pereților labirintului. Dacă da, îl repoziționează la punctul de start.</li>
+                  <li>Verifică dacă vrăjitorul atinge bagheta (Wand). Dacă da, trimite mesajul "win" pentru a anunța victoria.</li>
+                  <li>Pentru deplasare, verifică tastele săgeți:
+                    <ul>
+                      <li>Săgeata sus: se orientează în sus (0 grade) și se deplasează 2 pași</li>
+                      <li>Săgeata jos: se orientează în jos (180 grade) și se deplasează 2 pași</li>
+                      <li>Săgeata dreapta: se orientează spre dreapta (90 grade) și se deplasează 2 pași</li>
+                      <li>Săgeata stânga: se orientează spre stânga (-90 grade) și se deplasează 2 pași</li>
+                    </ul>
+                  </li>
+                  <li>După fiecare deplasare, schimbă la următorul costum pentru a crea animația de mers.</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți ajusta viteza vrăjitorului modificând numărul de pași (2) din blocurile de mișcare. Un număr mai mare îl va face să se miște mai repede, dar va crește și riscul de a atinge pereții.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 3: Programarea liliecilor -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Programarea liliecilor</h2>
+          <p>Acum vom programa liliecii care patrulează labirintul. Ei se vor mișca autonom și vor trebui să evite pereții. Selectează personajul <strong>Bat</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect6bat.png" alt="Codul pentru liliac" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului, liliacul:
+                <ul>
+                  <li>Se face vizibil</li>
+                  <li>Se poziționează la coordonatele specifice (diferite pentru fiecare liliac)</li>
+                  <li>Își setează dimensiunea la 13% din mărimea originală</li>
+                </ul>
+              </li>
+              <li><strong>Algoritm de mișcare și evitare a obstacolelor</strong> - Într-o buclă infinită:
+                <ul>
+                  <li>Verifică dacă atinge vrăjitorul. Dacă da, trimite mesajul "lose" pentru a anunța înfrângerea.</li>
+                  <li>Se deplasează 1 pas înainte</li>
+                  <li>Verifică dacă atinge culoarea pereților labirintului. Dacă da:
+                    <ul>
+                      <li>Se deplasează 1 pas înapoi (pentru a ieși din coliziune)</li>
+                      <li>Generează un număr aleatoriu între 1 și 2</li>
+                      <li>În funcție de acest număr, se rotește 45 de grade la stânga sau la dreapta pentru a găsi o nouă direcție</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat pentru algoritmul de evitare a obstacolelor</h4>
+              <p>Algoritmul folosit pentru evitarea pereților este simplu dar eficient: când liliacul atinge un perete, face un pas înapoi și apoi se rotește aleatoriu la stânga sau la dreapta. Acest comportament îl face să "exploreze" diferite direcții până găsește un drum liber.</p>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Duplicarea liliecilor:</h4>
+            <p>Pentru a avea mai mulți lilieci, poți duplica personajul Bat și modifica doar poziția inițială pentru fiecare copie:</p>
+            <ul>
+              <li><strong>Bat 1:</strong> x = -154, y = 27</li>
+              <li><strong>Bat 2:</strong> x = 181, y = -129</li>
+              <li><strong>Bat 3:</strong> x = -182, y = -153</li>
+            </ul>
+            <p>Restul codului rămâne identic pentru toți liliecii.</p>
+          </div>
+        </section>
+        
+        <!-- Pasul 4: Configurarea decorului și condițiilor de final -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">4</span> Configurarea decorului și condițiilor de final</h2>
+          <p>În ultimul pas, vom configura decorul pentru a gestiona condițiile de victorie și înfrângere. Selectează <strong>Scena</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect6scena.png" alt="Codul pentru scena jocului" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului, scena trece la primul decor (labirintul).</li>
+              <li><strong>Condiții de final</strong> - Scena ascultă două mesaje diferite:
+                <ul>
+                  <li>Când primește mesajul "win" (de la vrăjitor când atinge bagheta), trece la decorul de victorie.</li>
+                  <li>Când primește mesajul "lose" (de la lilieci când ating vrăjitorul), trece la decorul de înfrângere.</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Decorul conține trei costume diferite: labirintul principal, ecranul de victorie și ecranul de înfrângere. Poți personaliza aceste ecrane de final în tab-ul "Decoruri" pentru a face jocul mai atractiv.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 5: Testează și îmbunătățește -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">5</span> Testează și îmbunătățește</h2>
+          <p>Acum că toate elementele jocului sunt implementate, este timpul să îl testezi! Apasă steagul verde și încearcă să ghidezi vrăjitorul până la baghetă, evitând pereții și liliecii.</p>
+          
+          <div class="challenge-section">
+            <h3><i class="fas fa-star"></i> Provocări pentru îmbunătățirea jocului</h3>
+            <p>După ce ai terminat jocul de bază, încearcă aceste îmbunătățiri:</p>
+            
+            <div class="challenges">
+              <div class="challenge-item">
+                <span class="challenge-icon">🎵</span>
+                <div class="challenge-info">
+                  <h4>Adaugă efecte sonore și muzică</h4>
+                  <p>Adaugă sunete pentru mișcarea vrăjitorului, coliziunea cu pereții și muzică de fundal potrivită.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">⏱️</span>
+                <div class="challenge-info">
+                  <h4>Adaugă un cronometru</h4>
+                  <p>Implementează un timer care să limiteze timpul disponibil pentru a găsi bagheta.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">💎</span>
+                <div class="challenge-info">
+                  <h4>Adaugă obiecte colectabile</h4>
+                  <p>Plasează monede sau cristale magice în labirint pentru a obține puncte bonus.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🏆</span>
+                <div class="challenge-info">
+                  <h4>Creează niveluri multiple</h4>
+                  <p>Adaugă mai multe labirinturi cu dificultate crescândă pentru a extinde jocul.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Concluzie -->
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc captivant de tip labirint în care trebuie să ghidezi un vrăjitor pentru a găsi bagheta magică! Acest proiect ți-a permis să înveți despre controlul personajelor, detecția coliziunilor bazată pe culori, mișcarea autonomă a inamicilor și crearea condițiilor de victorie și înfrângere. Acum poți:</p>
+          <ul class="conclusion-list">
+            <li><i class="fas fa-share-nodes"></i> <strong>Împărtășește jocul</strong> cu prietenii și familia</li>
+            <li><i class="fas fa-code-branch"></i> <strong>Personalizează-l</strong> adăugând propriile tale idei și îmbunătățiri</li>
+            <li><i class="fas fa-lightbulb"></i> <strong>Folosește</strong> aceste concepte pentru a crea alte jocuri similare</li>
+          </ul>
+          
+          <div class="next-project">
+            <h3><i class="fas fa-forward"></i> Ce urmează?</h3>
+            <p>Acum că ai învățat cum să creezi un joc de labirint, poți încerca să dezvolți jocuri mai complexe cu mai multe niveluri, mecanici de joc avansate și povești captivante!</p>
+            <a href="index.html" class="btn secondary">Descoperă mai multe tutoriale Scratch</a>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  
+  <!-- Footer va fi încărcat aici -->
+  <div id="footer-container"></div>
+  
+  <!-- Scripts -->
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>
