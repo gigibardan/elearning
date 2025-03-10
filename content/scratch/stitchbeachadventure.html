@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Stitch's Beach Adventure - TechMinds</title>
+  <meta name="description" content="Învață să creezi un joc distractiv în Scratch cu Stitch, personajul tău preferat, care colectează torturi și evită bombe pe o plajă însorită.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  
+  <!-- Stiluri -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  
+  <!-- Font Awesome pentru iconițe -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header va fi încărcat aici -->
+  <div id="header-container"></div>
+  
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Stitch's Beach Adventure" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 90 minute</span>
+          <span><i class="fas fa-signal"></i> Începător-Intermediar</span>
+          <span><i class="fas fa-graduation-cap"></i> 8-14 ani</span>
+        </div>
+      </header>
+      
+      <section class="tutorial-content">
+        <!-- Secțiunea de introducere -->
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>Stitch, simpaticul extraterestru albastru, s-a hotărât să petreacă o zi relaxantă la plajă. Dar ce zi ar fi completă fără niște delicioase torturi? Din fericire pentru el, pe plajă apar torturi zburătoare pe care le poate colecta. Însă, nu totul e roz - printre torturi se ascund și bombe periculoase care îi pot strica ziua!</p>
+            <p>În acest joc captivant, vei controla personajul Stitch, mișcându-l stânga-dreapta pentru a colecta cât mai multe torturi, evitând în același timp bombele. Fiecare tort îți aduce un punct, dar fiecare bombă îți scade două puncte. Poți câștiga dacă aduni 50 de puncte, dar pierzi dacă scorul tău scade sub -5.</p>
+          </div>
+          
+          <div class="tutorial-features-row">
+            <div class="tutorial-features">
+              <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Controlul personajului cu tastele săgeți</li>
+                <li><i class="fas fa-check"></i> Animarea personajelor prin schimbarea costumelor</li>
+                <li><i class="fas fa-check"></i> Generarea de obiecte aleatorii folosind clone</li>
+                <li><i class="fas fa-check"></i> Detectarea coliziunilor între personaje</li>
+                <li><i class="fas fa-check"></i> Implementarea unui sistem de scor cu condiții de victorie și înfrângere</li>
+              </ul>
+            </div>
+            
+            <div class="game-preview">
+              <div class="preview-container">
+                <img src="../../assets/images/scratchproiect7preview.png" alt="Previzualizare joc Stitch's Beach Adventure" class="preview-image">
+                <div class="play-button">
+                  <a href="https://scratch.mit.edu/projects/1144880196" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Secțiunea de start -->
+        <div class="get-started">
+          <h2>Să începem!</h2>
+          <p>Pentru a crea acest joc mai ușor, am pregătit un proiect starter cu personajele și decorurile deja adăugate. Tot ce trebuie să faci este să adaugi codul și tortul din biblioteca Scratch!</p>
+          <a href="https://scratch.mit.edu/projects/1144904430/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+          <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă butonul "Vezi în interior" pentru a putea edita proiectul, apoi "Remixează" pentru a salva propria versiune!</p>
+        </div>
+        
+        <!-- Pasul 1: Personajele jocului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Personajele jocului</h2>
+          <p>Proiectul starter conține deja majoritatea personajelor necesare. Va trebui să adăugăm doar tortul din biblioteca Scratch:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect7personaje.png" alt="Personajele jocului" class="code-image">
+          </div>
+          
+          <div class="sprites-list">
+            <div class="sprite-item">
+              <span class="sprite-icon">👽</span>
+              <div class="sprite-info">
+                <h4>Stitch</h4>
+                <p>Personajul principal controlat de jucător, care trebuie să colecteze torturi și să evite bombe.</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">🍰</span>
+              <div class="sprite-info">
+                <h4>Cake (Tortul)</h4>
+                <p>Obiectele pe care trebuie să le colectezi pentru a obține puncte (1 punct per tort).</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">💣</span>
+              <div class="sprite-info">
+                <h4>Bomb (Bomba)</h4>
+                <p>Obstacolele care trebuie evitate (-2 puncte per bombă).</p>
+              </div>
+            </div>
+            
+            <div class="sprite-item">
+              <span class="sprite-icon">➖</span>
+              <div class="sprite-info">
+                <h4>Linie</h4>
+                <p>O linie invizibilă plasată în partea stângă a ecranului pentru a detecta când obiectele ies din scenă.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Adăugarea tortului:</h4>
+            <ol>
+              <li>Apasă pe butonul "Alege un personaj" din colțul din dreapta jos</li>
+              <li>Caută "cake" sau "tort" în biblioteca Scratch</li>
+              <li>Selectează un tort care îți place și adaugă-l în proiect</li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Stitch are 20 de costume disponibile care vor fi folosite pentru a crea o animație fluidă. Poți vedea aceste costume selectând personajul și navigând la tab-ul "Costume".</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 2: Programarea lui Stitch -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Programarea lui Stitch</h2>
+          <p>Primul pas este să facem personajul Stitch să se miște stânga-dreapta cu ajutorul tastelor săgeți și să aibă o animație fluidă. Selectează personajul <strong>Stitch</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect7stitch.png" alt="Codul pentru Stitch" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începerea jocului, Stitch:
+                <ul>
+                  <li>Se poziționează la coordonatele de start (x = -190, y = 0)</li>
+                  <li>Se orientează spre dreapta (90 de grade)</li>
+                </ul>
+              </li>
+              <li><strong>Controlul mișcării</strong> - Într-o buclă infinită:
+                <ul>
+                  <li>Verifică dacă săgeata stânga este apăsată - mută Stitch cu 5 pași la stânga și îl orientează în direcția corectă (-90 grade)</li>
+                  <li>Verifică dacă săgeata dreapta este apăsată - mută Stitch cu 5 pași la dreapta și îl orientează în direcția corectă (90 grade)</li>
+                  <li>Verifică dacă Stitch atinge marginea ecranului - în acest caz, ricoșează pentru a evita ieșirea din ecran</li>
+                </ul>
+              </li>
+              <li><strong>Animația personajului</strong> - Într-o buclă separată și paralelă:
+                <ul>
+                  <li>Schimbă costumul personajului la următorul disponibil</li>
+                  <li>Așteaptă o scurtă perioadă pentru a crea efectul de animație</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Viteza de deplasare a lui Stitch poate fi ajustată modificând valoarea "5" din blocurile "modifică x cu". O valoare mai mare va face personajul să se miște mai rapid.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 3: Programarea tortului -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Programarea tortului</h2>
+          <p>Acum vom programa torturile care vor apărea din partea dreaptă a ecranului și vor aduce puncte când Stitch le atinge. Selectează personajul <strong>Cake</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect7cake.png" alt="Codul pentru tort" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului:
+                <ul>
+                  <li>Ascundem tortul original (vom folosi clone)</li>
+                  <li>Setăm scorul la 0</li>
+                  <li>Într-o buclă infinită, creăm clone ale tortului la intervale aleatorii (între 2 și 3 secunde)</li>
+                </ul>
+              </li>
+              <li><strong>Comportamentul clonelor</strong> - Când o clonă începe:
+                <ul>
+                  <li>Se face vizibilă</li>
+                  <li>Se poziționează la o înălțime aleatorie (y aleatoriu) și în afara ecranului în dreapta (x = 250)</li>
+                  <li>Se deplasează continuu spre stânga cu o viteză de 4 pași per iterație</li>
+                  <li>Verifică constant dacă atinge personajul Stitch - în acest caz adaugă 1 punct la scor și dispare</li>
+                  <li>Verifică constant dacă atinge marginea din stânga (Linia) - în acest caz dispare fără a afecta scorul</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Poți ajusta frecvența de apariție a torturilor modificând intervalul de așteptare (2-3 secunde). Un interval mai mic va face torturile să apară mai des, crescând atât dificultatea cât și șansele de a obține puncte.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 4: Programarea bombelor -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">4</span> Programarea bombelor</h2>
+          <p>Similar cu torturile, vom programa bombele care vor apărea din partea dreaptă a ecranului și vor scădea puncte când Stitch le atinge. Selectează personajul <strong>Bomb</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect7bomb.png" alt="Codul pentru bombă" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului:
+                <ul>
+                  <li>Ascundem bomba originală (vom folosi clone)</li>
+                  <li>Într-o buclă infinită, creăm clone ale bombei la intervale aleatorii (între 3 și 4 secunde)</li>
+                </ul>
+              </li>
+              <li><strong>Comportamentul clonelor</strong> - Când o clonă începe:
+                <ul>
+                  <li>Se face vizibilă</li>
+                  <li>Se poziționează la o înălțime aleatorie (y aleatoriu) și în afara ecranului în dreapta (x = 250)</li>
+                  <li>Se deplasează continuu spre stânga cu o viteză de 4 pași per iterație</li>
+                  <li>Verifică constant dacă atinge personajul Stitch - în acest caz scade 2 puncte din scor și dispare</li>
+                  <li>Verifică constant dacă atinge marginea din stânga (Linia) - în acest caz dispare fără a afecta scorul</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h5>Pentru tort (recompensă):</h5>
+                <div class="scratch-block">
+                  <span class="block-text">așteaptă [alege aleator între (2) și (3)] secunde</span>
+                </div>
+                <div class="scratch-block">
+                  <span class="block-text">dacă atinge [Stitch] atunci</span>
+                </div>
+                <div class="scratch-block">
+                  <span class="block-text">modifică [Scor] cu [1]</span>
+                </div>
+              </div>
+              
+              <div class="code-block">
+                <h5>Pentru bombă (penalizare):</h5>
+                <div class="scratch-block negative">
+                  <span class="block-text">așteaptă [alege aleator între (3) și (4)] secunde</span>
+                </div>
+                <div class="scratch-block negative">
+                  <span class="block-text">dacă atinge [Stitch] atunci</span>
+                </div>
+                <div class="scratch-block negative">
+                  <span class="block-text">modifică [Scor] cu [-2]</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Observă că bombele apar mai rar decât torturile (3-4 secunde în loc de 2-3 secunde), oferind astfel un echilibru între recompense și penalizări. De asemenea, penalizarea pentru o bombă (-2 puncte) este mai mare decât recompensa pentru un tort (+1 punct), ceea ce face jocul provocator.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 5: Configurarea decorului și condițiilor de final -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">5</span> Configurarea decorului și condițiilor de final</h2>
+          <p>În ultimul pas, vom configura decorul pentru a gestiona condițiile de victorie și înfrângere, și vom adăuga muzică de fundal. Selectează <strong>Scena</strong> și adaugă următorul cod:</p>
+          
+          <div class="code-preview">
+            <img src="../../assets/images/scratchproiect7decor.png" alt="Codul pentru decor" class="code-image">
+          </div>
+          
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului:
+                <ul>
+                  <li>Trecem la decorul "play" (plaja unde se desfășoară jocul)</li>
+                  <li>Pornim muzica de fundal care va acompania jocul</li>
+                </ul>
+              </li>
+              <li><strong>Condiții de final</strong> - Într-o buclă infinită, verificăm:
+                <ul>
+                  <li>Dacă scorul depășește 49 - trecem la decorul "win" pentru a indica victoria</li>
+                  <li>Dacă scorul scade sub -5 - trecem la decorul "lose" pentru a indica înfrângerea</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="tip-box">
+              <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+              <p>Decorul conține trei costume diferite: plaja principală ("play"), ecranul de victorie ("win") și ecranul de înfrângere ("lose"). Poți personaliza aceste ecrane de final în tab-ul "Decoruri" pentru a face jocul mai atractiv.</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Pasul 6: Testează și îmbunătățește -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">6</span> Testează și îmbunătățește</h2>
+          <p>Acum că toate elementele jocului sunt implementate, este timpul să îl testezi! Apasă steagul verde și încearcă să controlezi pe Stitch pentru a colecta torturi și a evita bombe.</p>
+          
+          <div class="challenge-section">
+            <h3><i class="fas fa-star"></i> Provocări pentru îmbunătățirea jocului</h3>
+            <p>După ce ai terminat jocul de bază, încearcă aceste îmbunătățiri:</p>
+            
+            <div class="challenges">
+              <div class="challenge-item">
+                <span class="challenge-icon">🔊</span>
+                <div class="challenge-info">
+                  <h4>Adaugă efecte sonore</h4>
+                  <p>Adaugă sunete pentru colectarea torturilor, lovirea bombelor și pentru finalul jocului.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">⏱️</span>
+                <div class="challenge-info">
+                  <h4>Adaugă un cronometru</h4>
+                  <p>Implementează un timer pentru a limita durata jocului și a crește provocarea.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🚀</span>
+                <div class="challenge-info">
+                  <h4>Crește dificultatea progresiv</h4>
+                  <p>Fă obiectele să se miște mai repede pe măsură ce scorul crește.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item">
+                <span class="challenge-icon">🎁</span>
+                <div class="challenge-info">
+                  <h4>Adaugă power-ups</h4>
+                  <p>Creează obiecte speciale care oferă abilități temporare, cum ar fi imunitate la bombe sau puncte bonus.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Concluzie -->
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc captivant cu Stitch care colectează torturi pe plajă! Acest proiect ți-a permis să înveți despre controlul personajelor, animație, generarea de obiecte aleatorii, detecția coliziunilor și implementarea condițiilor de victorie și înfrângere. Acum poți:</p>
+          <ul class="conclusion-list">
+            <li><i class="fas fa-share-nodes"></i> <strong>Împărtășește jocul</strong> cu prietenii și familia</li>
+            <li><i class="fas fa-code-branch"></i> <strong>Personalizează-l</strong> adăugând propriile tale idei și îmbunătățiri</li>
+            <li><i class="fas fa-lightbulb"></i> <strong>Folosește</strong> aceste concepte pentru a crea alte jocuri similare</li>
+          </ul>
+          
+          <div class="next-project">
+            <h3><i class="fas fa-forward"></i> Ce urmează?</h3>
+            <p>Acum că ai învățat cum să creezi un joc de colectat obiecte, poți încerca să dezvolți un joc mai complex cu mai multe tipuri de obiecte, nivele și power-ups!</p>
+            <a href="index.html" class="btn secondary">Descoperă mai multe tutoriale Scratch</a>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  
+  <!-- Footer va fi încărcat aici -->
+  <div id="footer-container"></div>
+  
+  <!-- Scripts -->
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>
