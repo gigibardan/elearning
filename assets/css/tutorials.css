@@ -388,26 +388,268 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+/* Media Queries pentru Tableta */
+@media (max-width: 992px) {
+  .tutorial-container {
+    padding: 20px 15px;
+  }
+  
+  .tutorial-header h1 {
+    font-size: 2rem;
+  }
+  
+  .tutorial-intro {
+    margin-bottom: 25px;
+  }
+  
+  .tutorial-intro-content {
+    margin-bottom: 20px;
+  }
+  
   .tutorial-features-row {
-    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .get-started {
+    padding: 20px 15px;
+    margin-bottom: 30px;
+  }
+  
+  .tutorial-step {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
   }
   
   .code-preview {
     padding: 15px;
   }
   
-  .challenges {
-    grid-template-columns: 1fr;
+  .code-explanation {
+    padding: 15px;
   }
   
-  .tutorial-step h2 {
+  .sprites-list {
+    gap: 10px;
+  }
+  
+  .sprite-item {
+    padding: 12px;
+  }
+  
+  .challenge-section {
+    padding: 20px 15px;
+  }
+  
+  .challenges {
+    gap: 15px;
+  }
+  
+  .tutorial-conclusion {
+    padding: 25px 15px;
+  }
+}
+
+/* Media Queries pentru Mobil */
+@media (max-width: 576px) {
+  .tutorial-container {
+    padding: 15px 8px;
+    border-radius: 6px;
+  }
+  
+  .tutorial-header {
+    margin-bottom: 15px;
+  }
+  
+  .tutorial-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+  
+  .tutorial-info {
+    flex-wrap: wrap;
+    gap: 8px 15px;
+    justify-content: center;
+  }
+  
+  .tutorial-intro-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  
+  .tutorial-intro-content p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  
+  .tutorial-features {
+    padding: 12px;
+  }
+  
+  .tutorial-features h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .features-list li {
+    padding-left: 22px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .game-preview {
+    margin-top: 10px;
+  }
+  
+  .play-button .btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  
+  .get-started {
+    padding: 15px 10px;
+    margin-bottom: 20px;
+  }
+  
+  .get-started h2 {
     font-size: 1.4rem;
   }
   
-  .check-step-btn {
-    display: block;
+  .get-started p {
+    font-size: 0.95rem;
+  }
+  
+  .get-started .btn {
     width: 100%;
-    text-align: center;
+    padding: 10px 15px;
+    margin: 15px 0 10px;
+  }
+  
+  .get-started .tip {
+    font-size: 0.85rem;
+  }
+  
+  .tutorial-step {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+  }
+  
+  .tutorial-step h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  .step-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .code-preview {
+    padding: 10px 5px;
+    margin: 12px 0;
+  }
+  
+  .code-explanation {
+    padding: 12px;
+    margin: 12px 0;
+  }
+  
+  .code-explanation h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .code-explanation ol, 
+  .code-explanation ul {
+    padding-left: 20px;
+  }
+  
+  .code-explanation li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .tip-box {
+    padding: 10px;
+    margin: 15px 0;
+  }
+  
+  .sprites-list {
+    display: block;
+  }
+  
+  .sprite-item {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .code-comparison {
+    flex-direction: column;
+  }
+  
+  .code-block {
+    margin-bottom: 10px;
+  }
+  
+  .win-lose-container {
+    flex-direction: column;
+  }
+  
+  .code-column {
+    margin-bottom: 15px;
+  }
+  
+  .challenge-section {
+    padding: 15px 10px;
+    margin: 20px 0;
+  }
+  
+  .challenge-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .challenges {
+    display: block;
+  }
+  
+  .challenge-item {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .tutorial-conclusion {
+    padding: 20px 10px;
+  }
+  
+  .tutorial-conclusion h2 {
+    font-size: 1.4rem;
+  }
+  
+  .conclusion-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .next-project {
+    padding: 15px 10px;
+  }
+  
+  .next-project h3 {
+    font-size: 1.2rem;
+  }
+  
+  .next-project .btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  /* Progres bar pentru mobil */
+  .tutorial-progress {
+    padding: 8px 0;
+  }
+  
+  .step-marker {
+    width: 8px;
+    height: 8px;
   }
 }
