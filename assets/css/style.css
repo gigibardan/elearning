@@ -880,7 +880,9 @@ img {
   .tutorial-card {
     flex-direction: column;
   }
-  
+  .courses-section {
+    padding: 10px 0;
+  }
   .tutorial-card img {
     width: 100%;
     height: auto;
