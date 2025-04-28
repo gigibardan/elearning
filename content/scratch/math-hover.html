@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Math Challenge - TechMinds</title>
+  <meta name="description" content="Învață să creezi un joc educativ în Scratch în care Capybara pune întrebări de matematică, iar personajele Minecraft, Roblox și Brawl Stars oferă răspunsuri automate, cel puțin unul corect.">
+
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Math Challenge" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 90 minute</span>
+          <span><i class="fas fa-signal"></i> Începător</span>
+          <span><i class="fas fa-graduation-cap"></i> 7-14 ani</span>
+        </div>
+      </header>
+
+      <section class="tutorial-content">
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>Capybara, profesorul de matematică, pune întrebări simple de adunare, iar elevii săi din Minecraft, Roblox și Brawl Stars răspund automat, dar nu întotdeauna corect! Jucătorul trebuie să descopere care personaj are răspunsul corect și să dea click pe el.</p>
+            <p>Scopul jocului este să răspunzi corect la cât mai multe întrebări, antrenându-ți abilitățile de calcul mental!</p>
+          </div>
+
+          <div class="tutorial-features-row">
+            <div class="tutorial-features">
+              <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Generarea aleatoare a întrebărilor de adunare</li>
+                <li><i class="fas fa-check"></i> Programarea răspunsurilor automate ale personajelor</li>
+                <li><i class="fas fa-check"></i> Detectarea clicului pe răspunsuri</li>
+                <li><i class="fas fa-check"></i> Oferirea de feedback vizual pentru răspunsuri corecte și greșite</li>
+              </ul>
+            </div>
+
+            <div class="game-preview">
+              <div class="preview-container">
+                <img src="../../assets/images/mathchallengepreview.png" alt="Previzualizare joc Math Challenge" class="preview-image">
+                <div class="play-button">
+                  <a href="https://scratch.mit.edu/projects/1151670508/editor" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="get-started">
+          <h2>Să începem!</h2>
+          <p>Am pregătit un proiect starter cu personajele deja adăugate. Trebuie doar să implementezi logica întrebărilor și a răspunsurilor!</p>
+          <a href="https://scratch.mit.edu/projects/1167074775/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+          <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă "Vezi în interior" și "Remixează" pentru a salva propria versiune!</p>
+        </div>
+
+        <!-- Pasul 1: Capybara pune întrebările -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Programarea profesorului Capybara</h2>
+          <p>În acest pas, vom programa personajul <strong>Capybara</strong> pentru a genera întrebări de adunare:</p>
+
+          <div class="code-preview">
+            <img src="../../assets/images/capybaracod.png" alt="Cod Capybara întrebări" class="code-image">
+          </div>
+
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li><strong>Inițializare</strong> - La începutul jocului, Capybara își setează poziția și afișează un mesaj introductiv.</li>
+              <li><strong>Generare întrebări</strong> - La fiecare rundă, Capybara alege două numere aleatoare între 1 și 10, le memorează în varibilele <em>numar1</em> și <em>numar2</em>, calculează suma și o memorează în variabila <em>rezultat</em> și afișează întrebarea (ex: 3 + 7 = ?).</li>
+              <li>Trimite mesajul "începe" pentru a activa personajele care răspund.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Pasul 2: Personajele răspund -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Programarea personajelor Minecraft, Roblox și Brawl Stars</h2>
+          <p>Aceste personaje răspund automat cu numere aleatoare, dar cel puțin unul oferă răspunsul corect:</p>
+
+          <div class="code-preview">
+            <img src="../../assets/images/personajecod.png" alt="Cod Personaje răspunsuri" class="code-image">
+          </div>
+
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li>La primirea mesajului "începe", fiecare personaj generează un răspuns:</li>
+              <ul>
+                <li>Personajele afișează <strong>rezultatul corect</strong> dacă acea variabila <em>aleator</em> ia valoarea 1.</li>
+                <li>Restul afișează <strong>numere aleatoare</strong> între 1 și 20.</li>
+              </ul>
+              <li>Când jucătorul merge cu mouse-ul deasupra personajului, dupa ce a fost trimis mesajul <em>corect/gresit</em> acesta afișează un mesaj corespunzător cu rezultatul calculului. <em>(Ex. dacă personajul a afișat răspunsul corect la calculul generat de Capybara, atunci el va afișa mesajul "Corect" în momentul in care utilizatorul merge cu mouse-ul deasupra lui.</em></li>
+            </ol>
+          </div>
+        </section>
+
+
+        <!-- Pasul 3: Provocări pentru îmbunătățire -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Provocări pentru îmbunătățirea jocului</h2>
+          <div class="challenge-section">
+            <p>După ce ai creat jocul de bază, încearcă aceste provocări:</p>
+            <div class="challenges">
+              <div class="challenge-item">
+                <span class="challenge-icon">🎵</span>
+                <div class="challenge-info">
+                  <h4>Adaugă efecte sonore</h4>
+                  <p>Adaugă sunete pentru răspunsuri corecte și greșite.</p>
+                </div>
+              </div>
+              <div class="challenge-item">
+                <span class="challenge-icon">⏱️</span>
+                <div class="challenge-info">
+                  <h4>Adaugă un cronometru</h4>
+                  <p>Limitează timpul pentru fiecare întrebare.</p>
+                </div>
+              </div>
+              <div class="challenge-item">
+                <span class="challenge-icon">⭐</span>
+                <div class="challenge-info">
+                  <h4>Adaugă un sistem de scor</h4>
+                  <p>Numără răspunsurile corecte și afișează scorul final.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Concluzie -->
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc educativ în care Capybara profesor testează cunoștințele de matematică ale elevilor săi! Acum poți:</p>
+          <ul class="conclusion-list">
+            <li><i class="fas fa-share-nodes"></i> <strong>Împărtășește jocul</strong> cu prietenii</li>
+            <li><i class="fas fa-code-branch"></i> <strong>Adaugă îmbunătățiri</strong> cu propriile idei</li>
+            <li><i class="fas fa-lightbulb"></i> <strong>Aplică aceste concepte</strong> în alte jocuri educative</li>
+          </ul>
+        </section>
+
+      </section>
+    </article>
+  </main>
+
+  <div id="footer-container"></div>
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>
