@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Robot Football - TechMinds</title>
+  <meta name="description" content="Învață să creezi un joc distractiv în Scratch unde doi roboți joacă fotbal controlând mingea și marcând goluri.">
+
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Robot Football" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 90 minute</span>
+          <span><i class="fas fa-signal"></i> Intermediar</span>
+          <span><i class="fas fa-graduation-cap"></i> 7-14 ani</span>
+        </div>
+      </header>
+
+      <section class="tutorial-content">
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>În acest joc captivant, doi roboți simpatici joacă fotbal pe un teren virtual. Fiecare robot este controlat de jucător cu ajutorul tastelor, iar mingea ricosează când lovește roboții sau marginile terenului. Scopul este să marchezi cât mai multe goluri împotriva adversarului!</p>
+          </div>
+
+          <div class="tutorial-features-row">
+            <div class="tutorial-features">
+              <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Controlul personajelor cu tastele (W, S și săgeți)</li>
+                <li><i class="fas fa-check"></i> Programarea mingii cu coliziuni și direcție aleatoare</li>
+                <li><i class="fas fa-check"></i> Crearea sistemului de scor pentru fiecare robot</li>
+                <li><i class="fas fa-check"></i> Animația de start cu numărătoare inversă</li>
+              </ul>
+            </div>
+
+            <div class="game-preview">
+              <div class="preview-container">
+                <img src="../../assets/images/robotfootballpreview.png" alt="Previzualizare joc Robot Football" class="preview-image">
+                <div class="play-button">
+                  <a href="https://scratch.mit.edu/projects/1167143998/" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="get-started">
+          <h2>Să începem!</h2>
+          <p>Am pregătit un proiect starter cu decorul și personajele adăugate. Tu vei implementa logica mingii, controlul roboților și scorul!</p>
+          <a href="https://scratch.mit.edu/projects/1167159029/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+          <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă "Vezi în interior" și "Remixează" pentru a salva propria versiune!</p>
+        </div>
+
+        <section class="tutorial-step">
+            <h2><span class="step-number">0</span> Personajele jocului</h2>
+            <p>Proiectul starter conține toate personajele necesare pentru meciul de fotbal dintre roboți:</p>
+          
+            <div class="code-preview">
+              <img src="../../assets/images/robotfootballcharacters.png" alt="Personajele jocului" class="code-image">
+            </div>
+          
+            <div class="sprites-list">
+              <div class="sprite-item">
+                <span class="sprite-icon">🤖</span>
+                <div class="sprite-info">
+                  <h4>Robot Roșu</h4>
+                  <p>Controlat cu tastele <strong>W</strong> și <strong>S</strong>, acesta încearcă să marcheze în poarta adversarului.</p>
+                </div>
+              </div>
+          
+              <div class="sprite-item">
+                <span class="sprite-icon">🤖</span>
+                <div class="sprite-info">
+                  <h4>Robot Albastru</h4>
+                  <p>Controlat cu săgețile <strong>sus</strong> și <strong>jos</strong>, el apără poarta opusă și atacă.</p>
+                </div>
+              </div>
+          
+              <div class="sprite-item">
+                <span class="sprite-icon">⚽</span>
+                <div class="sprite-info">
+                  <h4>Mingea</h4>
+                  <p>Se mișcă automat, ricoșează de roboți și margini, și pornește cu o animație 3-2-1 după fiecare gol.</p>
+                </div>
+              </div>
+          
+              <div class="sprite-item">
+                <span class="sprite-icon">🟥</span>
+                <div class="sprite-info">
+                  <h4>Linie1</h4>
+                  <p>Linia de poartă a robotului roșu. Dacă mingea o atinge, robotul albastru marchează un punct.</p>
+                </div>
+              </div>
+          
+              <div class="sprite-item">
+                <span class="sprite-icon">🟥</span>
+                <div class="sprite-info">
+                  <h4>Linie2</h4>
+                  <p>Linia de poartă a robotului albastru. Dacă mingea o atinge, robotul roșu marchează un punct.</p>
+                </div>
+              </div>
+            </div>
+          
+            <div class="code-explanation">
+              <h4>Despre personaje:</h4>
+              <ul>
+                <li>Mingea are mai multe costume (3, 2, 1 și mingea) pentru animația de start.</li>
+                <li>Roboții sunt poziționați de o parte și de alta a terenului și se mișcă doar pe verticală.</li>
+                <li>Scorul fiecărui robot este afișat permanent cu ajutorul variabilelor <strong>robot_roșu</strong> și <strong>robot_albastru</strong>.</li>
+              </ul>
+          
+              <div class="tip-box">
+                <h4><i class="fas fa-lightbulb"></i> Sfat</h4>
+                <p>Poți modifica costumele mingii sau ale roboților din tab-ul "Costume" pentru a personaliza jocul și mai mult!</p>
+              </div>
+            </div>
+          </section>
+
+        <!-- Pasul 1: Controlul roboților -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Controlul roboților</h2>
+          <p>Roboții <strong>robot_roșu</strong> și <strong>robot_albastru</strong> sunt controlați astfel:</p>
+
+          <div class="code-preview">
+            <img src="../../assets/images/robotcod.png" alt="Cod control roboți" class="code-image">
+          </div>
+
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ul>
+              <li><strong>robot_roșu</strong>: controlat cu tastele <strong>W</strong> și <strong>S</strong> pentru sus și jos.</li>
+              <li><strong>robot_albastru</strong>: controlat cu tastele <strong>săgeata sus</strong> și <strong>săgeata jos</strong>.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Pasul 2: Programarea mingii -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Programarea mingii</h2>
+          <p>Mingea ricosează de roboți și margini, iar când se dă gol, are o animație de start:</p>
+
+          <div class="code-preview">
+            <img src="../../assets/images/ballcod.png" alt="Cod minge" class="code-image">
+          </div>
+
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ol>
+              <li>Când începe jocul, mingea apare în centru și pornește cu o animație de countdown (3,2,1).</li>
+              <li>Mingea se mișcă aleatoriu, ricosează de roboți și margini, și își schimbă direcția când atinge ceva.</li>
+              <li><strong> Ricoșarea mingii </strong> se manifestă astfel: atunci când mingea atinge un robot, aceasta se orientează spre robot, se rotește 90 grade, apoi înaintează pași (astfel se îndepărtează de robot).</li>
+              <li>Când mingea atinge liniile de gol (Linie1 sau Linie2), se difuzează mesajul "restart".</li>
+              <li><strong>Sistemul de restart</strong> facilitează continuitatea jocului. La difuzarea mesajului <em>restart</em>, personajul trimite semnalul <em>start</em>, astfel mingea revine la mijloc, își reface animația (3,2,1, minge) iar jocul continuă prin mișcarea mingii într-o poziție aleatoare.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Pasul 3: Sistemul de scor -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Sistemul de scor</h2>
+          <p>Fiecare linie de gol adaugă puncte jucătorului corespunzător:</p>
+
+          <div class="code-preview">
+            <img src="../../assets/images/scorecod.png" alt="Cod sistem scor" class="code-image">
+          </div>
+
+          <div class="code-explanation">
+            <h4>Cum funcționează:</h4>
+            <ul>
+              <li>Când mingea atinge <strong>Linie1</strong>, <strong>robot_albastru</strong> primește 1 punct.</li>
+              <li>Când mingea atinge <strong>Linie2</strong>, <strong>robot_roșu</strong> primește 1 punct.</li>
+              <li>Scorul este afișat mereu pe ecran cu variabilele dedicate fiecărui robot.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Provocări -->
+        <section class="tutorial-step">
+          <h2><span class="step-number">4</span> Provocări pentru îmbunătățire</h2>
+          <div class="challenge-section">
+            <p>După ce ai implementat jocul de bază, încearcă aceste îmbunătățiri:</p>
+            <div class="challenges">
+              <div class="challenge-item">
+                <span class="challenge-icon">🎵</span>
+                <div class="challenge-info">
+                  <h4>Adaugă efecte sonore</h4>
+                  <p>Sunet la gol sau când mingea lovește marginile.</p>
+                </div>
+              </div>
+              <div class="challenge-item">
+                <span class="challenge-icon">⏱️</span>
+                <div class="challenge-info">
+                  <h4>Adaugă un cronometru</h4>
+                  <p>Setează o durată de joc (ex: 2 minute) și anunță câștigătorul la final.</p>
+                </div>
+              </div>
+              <div class="challenge-item">
+                <span class="challenge-icon">⚡</span>
+                <div class="challenge-info">
+                  <h4>Adaugă power-up-uri</h4>
+                  <p>Introdu obiecte care modifică viteza mingii sau roboților.</p>
+                </div>
+              </div>
+              <div class="challenge-item">
+                <span class="challenge-icon">🎮</span>
+                <div class="challenge-info">
+                  <h4>Adaugă un final</h4>
+                  <p>Setează un scor maxim la care unul dintre personaje să câștige.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Concluzie -->
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc distractiv de fotbal între roboți, învățând să controlezi personaje, să implementezi coliziuni și să gestionezi scorul. Poți să:</p>
+          <ul class="conclusion-list">
+            <li><i class="fas fa-share-nodes"></i> <strong>Împărtășești jocul</strong> cu prietenii</li>
+            <li><i class="fas fa-code-branch"></i> <strong>Îmbunătățești jocul</strong> cu idei noi</li>
+            <li><i class="fas fa-lightbulb"></i> <strong>Aplici aceste concepte</strong> în alte proiecte Scratch</li>
+          </ul>
+        </section>
+
+      </section>
+    </article>
+  </main>
+
+  <div id="footer-container"></div>
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>
