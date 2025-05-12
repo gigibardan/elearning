@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial Lista de Cumparaturi - TechMinds</title>
+  <meta name="description" content="Creează un joc educativ în Scratch în care o bunică o roagă pe nepoata ei să creeze o listă de cumpărături folosind blocurile Listă, Schimbă, Șterge și Afișează din Scratch.">
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/tutorials.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div id="header-container"></div>
+  <main class="container">
+    <article class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>Jocul "Lista de cumpărături" în Scratch</h1>
+        <div class="tutorial-info">
+          <span><i class="fas fa-clock"></i> 60 minute</span>
+          <span><i class="fas fa-signal"></i> Începător</span>
+          <span><i class="fas fa-graduation-cap"></i> 7-12 ani</span>
+        </div>
+      </header>
+
+      <section class="tutorial-content">
+        <div class="tutorial-intro">
+          <div class="tutorial-intro-content">
+            <h2>Povestea jocului</h2>
+            <p>Bunica Abby o roagă pe Lena, nepoata ei, să o ajute să facă o listă de cumpărături. Împreună, ele adaugă produse într-o listă, apoi modifică, șterg și înlocuiesc anumite elemente, învățând să folosească blocurile specifice pentru liste în Scratch.</p>
+          </div>
+        </div>
+
+        <div class="tutorial-features-row">
+          <div class="tutorial-features">
+            <h3><i class="fas fa-list-check"></i> Ce vei învăța</h3>
+            <ul class="features-list">
+              <li><i class="fas fa-check"></i> Utilizarea listelor în Scratch</li>
+              <li><i class="fas fa-check"></i> Adăugarea și ștergerea elementelor din listă</li>
+              <li><i class="fas fa-check"></i> Înlocuirea unui element din listă</li>
+              <li><i class="fas fa-check"></i> Comunicarea între personaje folosind mesaje</li>
+            </ul>
+          </div>
+
+          <div class="game-preview">
+            <div class="preview-container">
+              <img src="../../assets/images/bunicasinepoata.png" alt="Previzualizare joc Lista de Cumpărături" class="preview-image">
+              <div class="play-button">
+                <a href="https://scratch.mit.edu/projects/1173802559/" target="_blank" class="btn"><i class="fas fa-play"></i> Încearcă jocul final</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="get-started">
+            <h2>Să începem!</h2>
+            <p>Am pregătit un proiect starter cu decorul și personajele adăugate. Tu vei implementa logica personajelor și a scenei.</p>
+            <a href="https://scratch.mit.edu/projects/1173811609/editor/" target="_blank" class="btn primary"><i class="fas fa-rocket"></i> Deschide proiectul starter</a>
+            <p class="tip"><i class="fas fa-lightbulb"></i> Sfat: Apasă "Vezi în interior" și "Remixează" pentru a salva propria versiune!</p>
+          </div>
+        
+          <section class="tutorial-step">
+            <h2><span class="step-number">0</span> Crearea variabilei și a listei</h2>
+            <ul>
+              <li>Acest pas este foarte important pentru ca jocul să își atingă scopul, acela de practica listele.</li>
+              <li>În secțiunea <em>Varibile</em> 
+                <ul>
+                    <li>creem o variabilă și o numim <b>mere</b>.</li>
+                    <li>creem o listă și o denumim <b>lista</b>.</li>
+                </ul>
+                </li>
+              <li> Variabila <em>mere</em> o vom folosi pentru a afla poziția elementului "mere" în listă.</li>
+              <li> Lista <em>lista</em> o vom folosi pentru practicarea și aprofundarea acestui tip de date.</li>
+            </ul>
+            <img src="../../assets/images/variabile.png" alt="Script Abby" class="code-image">
+          </section>
+
+        <section class="tutorial-step">
+          <h2><span class="step-number">1</span> Programarea bunicii Abby</h2>
+          <ul>
+            <li>La începutul jocului, personajul Abby este ascuns.</li>
+            <li>Când primește mesajul <em>start</em>, se afișează bunicuța.</li>
+            <li>După ce golește lista, aceasta trimite mesaje către nepoata Lena.</li>
+          </ul>
+          <img src="../../assets/images/abby_script.png" alt="Script Abby" class="code-image">
+        </section>
+
+        <section class="tutorial-step">
+          <h2><span class="step-number">2</span> Programarea nepoatei Lena</h2>
+          <p>Lena creează lista, adaugă și modifică produsele conform instrucțiunilor primite.</p>
+          <ul>
+            <li>Acest personaj este ascuns la începerea jocului.</li>
+            <li>Populează lista prin răspunsurile la întrebări.</li>
+            <li>Crează variabila <em>mere</em> și o folosește pentru a identifica la ce index din listă este elementul "mere".</li>
+            <li>Pentru a șterge ultimul element din listă, se folosește de combinația de instrucțiuni <em>șterge lungimea lui lista din lista</em>:
+                <ul>
+                    <li><em>șterge _ din lista</em> efectuează ștergerea elementului _ din listă.</li>
+                    <li><em>lungimea lui lista</em> returnează un număr, acela fiind lungimea listei.</li>
+                    <li>Combinând cele două instrucțiuni de mai sus, se șterge ultimul element din listă.</li>
+                  </ul>
+            </li>
+          </ul>
+          
+          <ul>
+            <li>Adaugă <em>ciocolată</em> în listă.</li>
+            <li>Înlocuiește elementul <em>mere</em> cu <em>pere</em>:
+                <ul>
+                    <li><em>mere</em> este o variabilă care returnează poziția cuvântului "mere" în listă.</li>
+                    <li>Comanda <em>înlocuiește item din listă cu _</em> facilitează înlocuirea elementului de pe poziția item-ului cu ceea ce este completat în "_".</li>
+                  </ul>
+            </li>
+          </ul>
+          
+            
+          <img src="../../assets/images/lena_script.png" alt="Script Lena" class="code-image">
+        </section>
+
+        <section class="tutorial-step">
+          <h2><span class="step-number">3</span> Programarea scenei</h2>
+          <p>La începutul jocului, se schimbă decorul și pornește interacțiunea dintre personaje.</p>
+          <img src="../../assets/images/scena_script.png" alt="Script Scenă" class="code-image">
+        </section>
+
+        <section class="tutorial-step">
+            <h2><span class="step-number">4</span> Provocări pentru îmbunătățire</h2>
+            <div class="challenge-section">
+              <p>După ce ai creat lista de cumpărături, poți adăuga următoarele îmbunătățiri:</p>
+              <div class="challenges">
+                
+                <div class="challenge-item">
+                  <span class="challenge-icon">🎵</span>
+                  <div class="challenge-info">
+                    <h4>Adaugă fundal sonor</h4>
+                    <p>Include muzică liniștită sau un efect când lista este completată.</p>
+                  </div>
+                </div>
+                
+                <div class="challenge-item">
+                  <span class="challenge-icon">📋</span>
+                  <div class="challenge-info">
+                    <h4>Afișează lista completă</h4>
+                    <p>Fă ca Lena sau Abby să citească întreaga listă la finalul jocului.</p>
+                  </div>
+                </div>
+                
+                <div class="challenge-item">
+                  <span class="challenge-icon">🔢</span>
+                  <div class="challenge-info">
+                    <h4>Limitează lista</h4>
+                    <p>Setează o limită de maxim 5 produse, iar dacă lista e plină, blochează adăugarea.</p>
+                  </div>
+                </div>
+                
+                <div class="challenge-item">
+                  <span class="challenge-icon">❌</span>
+                  <div class="challenge-info">
+                    <h4>Feedback de la bunică</h4>
+                    <p>Fă ca bunica să comenteze dacă un produs nu este dorit sau apare de două ori.</p>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </section>
+          
+
+        <section class="tutorial-conclusion">
+          <h2>Felicitări!</h2>
+          <p>Ai creat un joc interactiv în care personajele colaborează pentru a realiza o listă de cumpărături. Acum poți să-l îmbunătățești sau să creezi o variantă proprie cu alte produse!</p>
+        </section>
+
+      </section>
+    </article>
+  </main>
+  <div id="footer-container"></div>
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>
